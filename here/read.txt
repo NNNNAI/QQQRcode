@@ -1,0 +1,25 @@
+ubuntu opencv 安装
+https://blog.csdn.net/lgh0824/article/details/78487234
+
+
+ubuntu zbar ubuntu 编译zbar 静态库
+https://www.cnblogs.com/luoyinjie/p/7744435.html
+
+qrencode-libqrecode的安装移植和应用-qrencode的交叉编译
+https://blog.csdn.net/u014213012/article/details/51833299
+
+
+
+//gen里面有两个文件，haha.cpp放着的是二维码生成bmp文件的函数声明定义以及测试主函数，li_bitmap是一些结构体的声明
+//recognize是摄像头识别二维码，只有一个cpp文件运行即可。
+
+//二维码生成与随机字符串
+//g++运行程序如下，cd到haha.cpp存放的目录，下面-I是把li_bitmap的目录导进来，把~/Downloads/qrencode4.0.0换成你存放li_bitmap的位置即可。
+g++  haha.cpp  -o bout `pkg-config opencv --libs`   -lzbar -lqrencode -I ~/Downloads/qrencode4.0.0
+
+
+
+
+//实时摄像头识别二维码
+g++ camera.cpp -o bout `pkg-config opencv --libs`   -lzbar -lqrencode
+
